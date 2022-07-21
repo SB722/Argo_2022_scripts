@@ -38,11 +38,11 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-      - name: Build docs
+    - name: Build docs
         run: |
           cd docs && make html
 
-      - name: Archive build artifacts (i.e. documentation)
+    - name: Archive build artifacts (i.e. documentation)
         uses: actions/upload-artifact@v2
         with:
           name: docs
@@ -52,7 +52,7 @@ jobs:
   publish:
     needs: build
     # Only publish documentation when merging into `origin/main`.`
-    if: "github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository_owner == 'lkluft'"
+    if: "github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository_owner == 'SB722'"
     runs-on: ubuntu-latest
     steps:
       - name: Download compiled book
