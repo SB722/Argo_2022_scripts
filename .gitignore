@@ -1,8 +1,0 @@
-.DS_Store
-*.pdf
-*.png
-*.nc
-*.mat
-scripts_and_data/modules/__pycache__/*
-scripts_and_data/modules/__pycache__
-*__pycache__*
