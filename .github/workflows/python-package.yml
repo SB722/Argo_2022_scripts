@@ -39,16 +39,16 @@ jobs:
       run: |
         pytest
         
-    - name: Build docs
-      run: |
-        cd docs && make html
+#     - name: Build docs
+#       run: |
+#         cd docs && make html
 
-    - name: Archive build artifacts (i.e. documentation)
-      uses: actions/upload-artifact@v2
-      with:
-        name: docs
-        path: |
-          docs/build
+#     - name: Archive build artifacts (i.e. documentation)
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: docs
+#         path: |
+#           docs/build
 
   publish:
     needs: build
@@ -56,11 +56,11 @@ jobs:
     if: "github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository_owner == 'SB722'"
     runs-on: ubuntu-latest
     steps:
-      - name: Download compiled book
-        uses: actions/download-artifact@v2
-        with:
-          name: docs
-          path: build
+#       - name: Download compiled book
+#         uses: actions/download-artifact@v2
+#         with:
+#           name: docs
+#           path: build
       - name: Publish book on github pages
         uses: peaceiris/actions-gh-pages@v3
         with:
